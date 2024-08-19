@@ -9,12 +9,13 @@ get "/" do
   erb :index
 end
 
-get "/:id" do
+get "/restaurants/:id" do
   @restaurant = Restaurant.find(params[:id])
   erb :show
 end
 
 post "/restaurants" do
+  binding.pry
   restaurant = Restaurant.create(name: params[:name], address: params[:address])
   redirect "/#{restaurant.id}"
 end
@@ -23,7 +24,7 @@ get "/vote/:id" do
   restaurant = Restaurant.find(params[:id])
   restaurant.rating += 1
   restaurant.save
-  redirect "/#{restaurant.id}"
+  redirect "/restaurants/#{restaurant.id}"
 end
 
 delete "/restaurants/:id" do

@@ -2,7 +2,7 @@
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li>
-      <a href="/<%= restaurant.id %>">
+      <a href="/restaurants/<%= restaurant.id %>">
         <p><%= restaurant.name %>, <%= restaurant.address %> / <%= restaurant.rating %></p>
       </a>
     </li>
