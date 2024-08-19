@@ -15,9 +15,8 @@ get "/restaurants/:id" do
 end
 
 post "/restaurants" do
-  binding.pry
   restaurant = Restaurant.create(name: params[:name], address: params[:address])
-  redirect "/#{restaurant.id}"
+  redirect "/restaurants/#{restaurant.id}"
 end
 
 get "/vote/:id" do
